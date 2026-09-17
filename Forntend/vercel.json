@@ -1,8 +1,10 @@
 {
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/app/login",       "destination": "/app/index.html" },
+    { "source": "/app/home",        "destination": "/app/index.html" },
+    { "source": "/app/claim-form",  "destination": "/app/index.html" },
+    { "source": "/app/pdf-preview", "destination": "/app/index.html" },
+    { "source": "/app/meeting/:id", "destination": "/app/index.html" },
+    { "source": "/app",             "destination": "/app/index.html" }
   ]
 }

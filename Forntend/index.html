@@ -1,14 +1,960 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Saturn Health Investigation - WebRTC Claims Management System" />
-    <title>Saturn Health Investigation - Claims Management</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saturn Associates Private Limited | Insurance Consulting Group</title>
+  <meta name="description" content="Saturn Associates Pvt. Ltd. — India's fastest growing Insurance Consulting Group. Medical fraud management and audit consulting for health insurance companies and TPAs." />
+  <link rel="icon" type="image/png" href="/company_logo_transparent.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #00a8cc;
+      --primary-dark: #007fa3;
+      --accent: #00d4ff;
+      --dark: #0d1b2a;
+      --text: #1a2a3a;
+      --text-light: #5a6a7a;
+      --bg: #f0f8ff;
+      --white: #ffffff;
+      --card-bg: #ffffff;
+      --border: #d0e8f5;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ── NAVBAR ────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,168,204,.08);
+    }
+
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-brand img {
+      height: 48px;
+      width: auto;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-brand-text .name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+
+    .nav-brand-text .tagline {
+      font-size: 11px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--primary); }
+
+    .btn-login {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+
+    .btn-login:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, #0d1b2a 0%, #0a3d5c 55%, #00a8cc 100%);
+      color: var(--white);
+      padding: 96px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/images/photo1_enhanced_square.jpg') center/cover no-repeat;
+      opacity: .12;
+    }
+
+    .hero-content { position: relative; max-width: 800px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,168,204,.25);
+      border: 1px solid rgba(0,168,204,.5);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: var(--accent); }
+
+    .hero p {
+      font-size: 18px;
+      color: rgba(255,255,255,.82);
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 8px;
+      border: 2px solid rgba(255,255,255,.5);
+      font-weight: 600;
+      font-size: 15px;
+      transition: border-color .2s, background .2s;
+    }
+
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,.08); }
+
+    /* ── STATS BAR ─────────────────────────────────────────── */
+    .stats-bar {
+      background: var(--primary-dark);
+      color: var(--white);
+      padding: 24px;
+    }
+
+    .stats-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-item span {
+      font-size: 13px;
+      color: rgba(255,255,255,.8);
+      font-weight: 500;
+    }
+
+    /* ── SECTION SHARED ────────────────────────────────────── */
+    section { padding: 80px 24px; }
+
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3.5vw, 36px);
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-light);
+      max-width: 640px;
+    }
+
+    .section-header { margin-bottom: 48px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-sub { margin: 0 auto; }
+
+    /* ── ABOUT ─────────────────────────────────────────────── */
+    .about { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-points { margin-top: 28px; display: flex; flex-direction: column; gap: 16px; }
+
+    .about-point {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .about-point .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(0,168,204,.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .about-point .icon svg { width: 20px; height: 20px; color: var(--primary); fill: none; stroke: currentColor; stroke-width: 2; }
+
+    .about-point p { font-size: 15px; color: var(--text-light); padding-top: 8px; }
+
+    /* ── SERVICES ──────────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      transition: box-shadow .25s, transform .2s;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(0,168,204,.15);
+      transform: translateY(-4px);
+    }
+
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .service-icon svg { width: 26px; height: 26px; fill: none; stroke: var(--white); stroke-width: 2; }
+
+    .service-card h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 14px;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ── CASHLESS INVESTIGATION ────────────────────────────── */
+    .cashless { background: var(--bg); }
+
+    .cashless-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .check-list { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+
+    .check-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 18px;
+      background: var(--white);
+      border-radius: 10px;
+      border-left: 3px solid var(--primary);
+    }
+
+    .check-item .bullet {
+      width: 22px;
+      height: 22px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .check-item .bullet svg { width: 12px; height: 12px; fill: none; stroke: var(--white); stroke-width: 2.5; }
+
+    .check-item span { font-size: 14px; color: var(--text); font-weight: 500; }
+
+    /* ── INDUSTRY INFO ─────────────────────────────────────── */
+    .industry {
+      background: linear-gradient(135deg, var(--dark) 0%, #0a3d5c 100%);
+      color: var(--white);
+    }
+
+    .industry .section-title { color: var(--white); }
+    .industry .section-sub { color: rgba(255,255,255,.75); }
+    .industry .section-label { color: var(--accent); }
+
+    .industry-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .industry-card {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+
+    .industry-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .industry-card p {
+      font-size: 14px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.7;
+    }
+
+    /* ── NETWORK ───────────────────────────────────────────── */
+    .network-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .network-card {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 24px;
+      border-top: 3px solid var(--primary);
+    }
+
+    .network-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .network-card ul { display: flex; flex-direction: column; gap: 6px; }
+
+    .network-card li {
+      font-size: 13px;
+      color: var(--text);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .network-card li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--primary);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── ASSOCIATIONS ──────────────────────────────────────── */
+    .associations { background: var(--bg); }
+
+    .assoc-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .assoc-chip {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      box-shadow: 0 2px 8px rgba(0,168,204,.08);
+    }
+
+    /* ── CONTACT ───────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+
+    .contact-person {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 24px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .contact-person h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .contact-person .role {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .contact-detail {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .contact-detail svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: var(--primary);
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    .contact-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 16px;
+      padding: 40px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-cta h3 { font-size: 22px; font-weight: 700; }
+    .contact-cta p { font-size: 15px; color: rgba(255,255,255,.85); }
+
+    .gst-badge {
+      display: inline-block;
+      background: rgba(0,0,0,.15);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+    }
+
+    footer strong { color: var(--white); }
+
+    /* ── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      #mobile-login { display: inline-block !important; }
+
+      .about-grid,
+      .cashless-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+
+      .about-img img { height: 260px; }
+
+      section { padding: 56px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ───────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <img src="/company_logo_transparent.png" alt="Saturn Associates Logo" />
+      <div class="nav-brand-text">
+        <span class="name">Saturn Associates Pvt. Ltd.</span>
+        <span class="tagline">Insurance Consulting Group</span>
+      </div>
+    </a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#network">Network</a>
+      <a href="#contact">Contact</a>
+      <a href="/app/" class="btn-login">Login</a>
+    </div>
+
+    <a href="/app/" class="btn-login" style="display:none;" id="mobile-login">Login</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Fastest Growing Insurance Consulting Group</div>
+    <h1>India's Trusted Partner in<br><span>Health Insurance Fraud Management</span></h1>
+    <p>Medical fraud management and audit consulting services for public and private health insurance companies and TPAs — powered by a Pan-India network of experts.</p>
+    <div class="hero-cta">
+      <a href="/app/" class="btn-primary">Access Portal &rarr;</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─────────────────────────────────────────────────────── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <strong>10,000+</strong>
+      <span>Claims Reviewed</span>
+    </div>
+    <div class="stat-item">
+      <strong>5+ Years</strong>
+      <span>Fraud Management Experience</span>
+    </div>
+    <div class="stat-item">
+      <strong>85+</strong>
+      <span>Professionals Across India</span>
+    </div>
+    <div class="stat-item">
+      <strong>Pan-India</strong>
+      <span>Network Coverage</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── ABOUT ─────────────────────────────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <img src="/images/image2_enhanced.jpg" alt="Saturn Associates team reviewing insurance claims" />
+      </div>
+      <div>
+        <div class="section-header">
+          <span class="section-label">Who We Are</span>
+          <h2 class="section-title">Saturn Associates Private Limited</h2>
+          <p class="section-sub">Incorporated in April 2025, we were founded by experienced health insurance professionals to address the growing challenge of health insurance fraud.</p>
+        </div>
+        <div class="about-points">
+          <div class="about-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <p>Partnered with major general insurance companies — reviewed <strong>10,000+ claims</strong> over the past 5 years.</p>
+          </div>
+          <div class="about-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0"/></svg>
+            </div>
+            <p>Employs <strong>15 full-time</strong> and <strong>70 part-time</strong> professionals — doctors, insurance experts, and investigators.</p>
+          </div>
+          <div class="about-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <p>Maintains a <strong>Pan-India network</strong> covering most major cities and towns.</p>
+          </div>
+          <div class="about-point">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <p>Continuously adopts <strong>advanced technology</strong> to deliver significant cost savings for insurers and TPAs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ───────────────────────────────────────────────────────── -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Consultancy Areas</h2>
+      <p class="section-sub">End-to-end fraud management and audit consulting across all claim types.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+        </div>
+        <h3>Cashless / Intimation Investigation</h3>
+        <p>Real-time verification of cashless claims — confirming genuineness of hospitalization, room category, member identity, and pre-authorization before approval.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <h3>Claims Audit</h3>
+        <p>Comprehensive post-claim audits to identify inflated bills, upcoding, and inconsistencies between medical records and submitted claims.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        </div>
+        <h3>Death Claim Investigation</h3>
+        <p>Thorough verification of death claims including cause of death, hospitalization history, and potential fraudulent circumstances.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+        </div>
+        <h3>Personal Accident</h3>
+        <p>Investigation of accidental claims including MLC records, alcohol history verification, and relative statements to determine claim validity.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+        </div>
+        <h3>Reimbursement Claim Investigation</h3>
+        <p>Field investigation of reimbursement claims — verifying hospital visits, treatment records, and supporting documents for accuracy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CASHLESS CHECKLIST ─────────────────────────────────────────────── -->
+<section class="cashless">
+  <div class="section-inner">
+    <div class="cashless-grid">
+      <div>
+        <span class="section-label">Cashless Investigation</span>
+        <h2 class="section-title">What We Verify</h2>
+        <p class="section-sub" style="margin-top:12px;">Every cashless claim is evaluated against a rigorous checklist to prevent fraud at the point of hospitalization.</p>
+        <img src="/images/photo1_enhanced_square.jpg" alt="Investigation process" style="width:100%;border-radius:12px;margin-top:28px;box-shadow:0 8px 30px rgba(0,0,0,.1);" />
+      </div>
+      <div class="check-list">
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Genuinely of Hospitalization</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Check for Room Category</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Verify the Member Identity</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Line of Treatment as per Diagnosis</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Pre-authorization Request Validation</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>History of Illness — Hypertension, Diabetes, etc.</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>History of Habits — e.g. Alcoholism</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Record of First Detection of Illness / Ailment</span>
+        </div>
+        <div class="check-item">
+          <div class="bullet"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <span>Accidental Case — H/O Alcohol, MLC Record, Relatives Statement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INDUSTRY ───────────────────────────────────────────────────────── -->
+<section class="industry">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Industry Context</span>
+      <h2 class="section-title">Health Insurance Industry Today</h2>
+      <p class="section-sub">Saturn Associates has been working in fraud management for 5+ years, addressing one of India's fastest-growing industry challenges.</p>
+    </div>
+    <div class="industry-cards">
+      <div class="industry-card">
+        <h3>Fastest Growing Sector</h3>
+        <p>Health insurance is one of the fastest growing industries in India, with rapidly increasing policy adoption across urban and rural populations.</p>
+      </div>
+      <div class="industry-card">
+        <h3>Rising Fraudulent Claims</h3>
+        <p>With increased awareness, grievances and fraudulent claims have also increased, posing significant challenges for insurers and TPAs.</p>
+      </div>
+      <div class="industry-card">
+        <h3>₹45,000 Crore+ Problem</h3>
+        <p>Total fraudulent market size is estimated at more than ₹45,000 crores (Industry Source), representing a massive drain on the insurance ecosystem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── NETWORK ────────────────────────────────────────────────────────── -->
+<section id="network">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Our Reach</span>
+      <h2 class="section-title">Pan-India Network</h2>
+      <p class="section-sub">Reimbursement investigation coverage across major states and hundreds of cities and towns.</p>
+    </div>
+    <div class="network-grid">
+      <div class="network-card">
+        <h3>NCR</h3>
+        <ul>
+          <li>Delhi</li>
+          <li>Gurugram</li>
+          <li>Faridabad</li>
+          <li>Sonipat</li>
+          <li>Panipat</li>
+          <li>Ghaziabad</li>
+          <li>Noida / Greater Noida</li>
+          <li>Rewari</li>
+          <li>Palwal</li>
+          <li>Bhadurgarh</li>
+          <li>Ballabgarh</li>
+        </ul>
+      </div>
+      <div class="network-card">
+        <h3>Uttar Pradesh</h3>
+        <ul>
+          <li>Agra, Firozabad, Mathura</li>
+          <li>Auraiya, Etwah, Farrukhabad</li>
+          <li>Kannauj, Kanpur, Unnao</li>
+          <li>Meerut, Lucknow</li>
+          <li>Gorakhpur, Prayagraj</li>
+          <li>Mujaffarnagar, Varanasi</li>
+          <li>Jhansi</li>
+        </ul>
+      </div>
+      <div class="network-card">
+        <h3>Madhya Pradesh</h3>
+        <ul>
+          <li>Bhopal, Indore, Jabalpur</li>
+          <li>Gwalior, Ujjain, Rewa</li>
+          <li>Sagar, Satna, Dewas</li>
+          <li>Khandwa, Khargone</li>
+          <li>Morena, Singrauli</li>
+          <li>Ratlam, Mandsaur</li>
+          <li>+ 25 more districts</li>
+        </ul>
+      </div>
+      <div class="network-card">
+        <h3>Chhattisgarh</h3>
+        <ul>
+          <li>Raipur</li>
+          <li>Kondagaon</li>
+          <li>Durg</li>
+          <li>Bilaspur</li>
+          <li>Rajnandgaon</li>
+        </ul>
+      </div>
+      <div class="network-card">
+        <h3>Rajasthan</h3>
+        <ul>
+          <li>Jaipur</li>
+          <li>Udaipur</li>
+          <li>Kota</li>
+          <li>Dholpur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ASSOCIATIONS ───────────────────────────────────────────────────── -->
+<section class="associations">
+  <div class="section-inner">
+    <div class="section-header center">
+      <span class="section-label">Our Partners</span>
+      <h2 class="section-title">Trusted Associations</h2>
+      <p class="section-sub">We work with leading TPAs and insurance companies across India.</p>
+    </div>
+    <div class="assoc-chips" style="justify-content:center;">
+      <div class="assoc-chip">FHPL TPA</div>
+      <div class="assoc-chip">VOLO TPA</div>
+      <div class="assoc-chip">IFFCO Tokio TPA</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ────────────────────────────────────────────────────────── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Get In Touch</span>
+      <h2 class="section-title">Contact Us</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-person">
+          <h3>Dr. Shailendra</h3>
+          <div class="role">Director</div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>+91-6262624845</span>
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>saturn.associate@gmail.com</span>
+          </div>
+        </div>
+        <div class="contact-person">
+          <h3>Miss. Payal</h3>
+          <div class="role">Director</div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>+91-8878623274</span>
+          </div>
+          <div class="contact-detail">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>saturn.associate@gmail.com</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <div style="background:#fff;border-radius:14px;padding:12px 20px;display:inline-flex;align-items:center;justify-content:center;width:fit-content;box-shadow:0 4px 16px rgba(0,0,0,.15);">
+          <img src="/company_logo_transparent.png" alt="Saturn Associates" style="height:56px;width:auto;display:block;" />
+        </div>
+        <h3>Saturn Associates Pvt. Ltd.</h3>
+        <p>India's fastest growing Insurance Consulting Group specializing in health insurance fraud management and audit consulting.</p>
+        <div class="gst-badge">GST: 23ABQCS0432A1ZU</div>
+        <a href="/app/" class="btn-primary" style="align-self:flex-start;margin-top:8px;">Access Portal &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2025 <strong>Saturn Associates Private Limited</strong>. All rights reserved. | GST: 23ABQCS0432A1ZU</p>
+  <p style="margin-top:8px;">Medical Fraud Management &amp; Audit Consulting &mdash; Pan India</p>
+</footer>
+
+</body>
 </html>
