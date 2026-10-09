@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | Saturn Associates Private Limited</title>
+  <meta name="description" content="Privacy Policy of Saturn Associates Private Limited — how we collect, use and protect information on our website and claims investigation portal." />
+  <link rel="icon" type="image/png" href="/company_logo_transparent.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #00a8cc;
+      --primary-dark: #007fa3;
+      --accent: #00d4ff;
+      --dark: #0d1b2a;
+      --text: #1a2a3a;
+      --text-light: #5a6a7a;
+      --bg: #f0f8ff;
+      --white: #ffffff;
+      --border: #d0e8f5;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── NAVBAR ────────────────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,168,204,.08);
+    }
+
+    .nav-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand { display: flex; align-items: center; gap: 12px; }
+    .nav-brand img { height: 48px; width: auto; }
+    .nav-brand-text { display: flex; flex-direction: column; }
+
+    .nav-brand-text .name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+
+    .nav-brand-text .tagline {
+      font-size: 11px;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .btn-back {
+      background: var(--primary);
+      color: var(--white);
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+
+    .btn-back:hover { background: var(--primary-dark); }
+
+    /* ── HEADER ────────────────────────────────────────────── */
+    .page-header {
+      background: linear-gradient(135deg, #0d1b2a 0%, #0a3d5c 55%, #00a8cc 100%);
+      color: var(--white);
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .page-header p { font-size: 15px; color: rgba(255,255,255,.82); }
+
+    /* ── CONTENT ───────────────────────────────────────────── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    main > p.intro {
+      font-size: 16px;
+      color: var(--text-light);
+      margin-bottom: 40px;
+    }
+
+    .policy-section { margin-bottom: 40px; }
+
+    .policy-section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .policy-section h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 20px 0 8px;
+    }
+
+    .policy-section p {
+      font-size: 15px;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 8px 0 16px;
+    }
+
+    .policy-section li {
+      font-size: 15px;
+      color: var(--text);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .policy-section li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 7px;
+      height: 7px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .contact-box {
+      background: var(--bg);
+      border-left: 4px solid var(--primary);
+      border-radius: 12px;
+      padding: 20px 24px;
+    }
+
+    .contact-box a { color: var(--primary-dark); font-weight: 600; }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+    }
+
+    footer strong { color: var(--white); }
+    footer a { color: var(--accent); }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      .nav-brand-text .tagline { display: none; }
+      main { padding: 40px 16px 56px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAVBAR ───────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-brand">
+      <img src="/company_logo_transparent.png" alt="Saturn Associates Logo" />
+      <div class="nav-brand-text">
+        <span class="name">Saturn Associates Pvt. Ltd.</span>
+        <span class="tagline">Insurance Consulting Group</span>
+      </div>
+    </a>
+    <a href="/" class="btn-back">&larr; Home</a>
+  </div>
+</nav>
+
+<!-- ─── HEADER ───────────────────────────────────────────────────────── -->
+<header class="page-header">
+  <h1>Privacy Policy</h1>
+  <p>Last Updated on October 9, 2026.</p>
+</header>
+
+<!-- ─── CONTENT ──────────────────────────────────────────────────────── -->
+<main>
+  <p class="intro">Saturn Associates Private Limited (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) operates this website and its claims investigation portal. We provide medical fraud management and audit consulting services to health insurance companies and Third Party Administrators (TPAs). We are committed to protecting the privacy of everyone who interacts with us. This policy explains our information practices for website visitors, portal users (our doctors and staff), and patients or insured persons who take part in claim verification.</p>
+
+  <section class="policy-section">
+    <h2>1. Information Collection</h2>
+
+    <h3>1.1 Website Visitors</h3>
+    <p>Our public website does not ask you to create an account and does not automatically collect personal identifiers such as your name or address. If you contact us by phone or email, we use the details you share only to respond to your request.</p>
+
+    <h3>1.2 Portal Users (Doctors and Staff)</h3>
+    <p>To provide secure access to our portal, we collect:</p>
+    <ul>
+      <li>Name and email address</li>
+      <li>Login password (stored only in encrypted, hashed form)</li>
+      <li>Account role and activity related to assigned claims</li>
+    </ul>
+
+    <h3>1.3 Claim Verification Information</h3>
+    <p>When an insurance company or TPA assigns us a claim for verification, we may collect and process the following information about the patient or insured person:</p>
+    <ul>
+      <li>Name, mobile number, preferred language and relationship to the insured</li>
+      <li>Policy, hospital, admission, discharge, diagnosis and treatment details</li>
+      <li>Medical, claim and insurance history relevant to the claim</li>
+      <li>Documents uploaded in support of the claim</li>
+      <li>Statements given during the verification</li>
+    </ul>
+
+    <h3>1.4 Video Verification Calls</h3>
+    <p>Claim verification may be carried out through a video call between our doctor and the patient or their representative. With the participant&rsquo;s knowledge, we may collect:</p>
+    <ul>
+      <li>Audio and video recordings of the verification call</li>
+      <li>Photographs captured during the call</li>
+      <li>Digital signatures of the doctor and patient</li>
+      <li>Device location (latitude, longitude and approximate address) of the doctor and patient, only after permission is granted in the browser</li>
+      <li>Call details such as join time, end time and participant names</li>
+    </ul>
+
+    <h3>1.5 Technical Data</h3>
+    <p>Like most websites, our hosting and service providers may automatically process limited technical data such as IP address, browser type, operating system, and access dates and times. This data is used to deliver and secure the service.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>2. Cookies &amp; Local Storage</h2>
+    <p>Our public website does not use advertising or tracking cookies. When you sign in to the portal, a login token is stored in your browser&rsquo;s local storage to:</p>
+    <ul>
+      <li>Keep you signed in while you use the portal</li>
+      <li>Protect pages that require authorization</li>
+    </ul>
+    <p>This token:</p>
+    <ul>
+      <li>Is removed when you log out</li>
+      <li>Expires automatically after a limited period</li>
+      <li>Is not used to track you across other websites</li>
+    </ul>
+  </section>
+
+  <section class="policy-section">
+    <h2>3. Information Use</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Verify the genuineness of health insurance claims assigned to us</li>
+      <li>Prepare verification and investigation reports for the insurance company or TPA that assigned the claim</li>
+      <li>Conduct and record video verification calls</li>
+      <li>Provide secure access to our portal</li>
+      <li>Respond to inquiries sent to us</li>
+      <li>Maintain and improve the security and performance of our services</li>
+      <li>Comply with legal and regulatory obligations</li>
+    </ul>
+  </section>
+
+  <section class="policy-section">
+    <h2>4. External Technologies &amp; Service Providers</h2>
+    <p>We use trusted third-party services to operate our platform, including:</p>
+    <ul>
+      <li>Cloud hosting for our website and portal</li>
+      <li>Secure cloud database and file storage for claim records, recordings and reports</li>
+      <li>Google Maps services to convert device location into an address and display it in reports</li>
+      <li>Connection services that help establish video calls between devices</li>
+      <li>Google Fonts to display text on our website</li>
+    </ul>
+    <p>These providers process data only as needed to provide their services to us.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>5. Data Sharing</h2>
+    <p>We do not sell personal information. We only share information when:</p>
+    <ul>
+      <li>It is required by the insurance company or TPA that assigned the claim for verification</li>
+      <li>It is necessary to deliver our services (for example, cloud hosting and storage providers)</li>
+      <li>It is required by law, regulation, court order or a government authority</li>
+      <li>It is needed to protect our legal rights or to prevent fraud</li>
+      <li>You have given your explicit consent</li>
+    </ul>
+  </section>
+
+  <section class="policy-section">
+    <h2>6. Data Retention</h2>
+    <p>We keep claim records, recordings and reports only for as long as needed to complete the verification, meet our contractual obligations to insurance companies and TPAs, and comply with applicable laws. After that, the information is deleted or anonymized.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>7. Security Measures</h2>
+    <p>We implement reasonable security practices, including:</p>
+    <ul>
+      <li>Encrypted (HTTPS) connections for data in transit</li>
+      <li>Hashed storage of portal passwords</li>
+      <li>Token-based authentication and role-based access controls</li>
+      <li>Single-use patient meeting links that cannot be reopened after completion</li>
+      <li>Access to claim data limited to authorized personnel</li>
+    </ul>
+    <p>No method of transmission or storage is completely secure, but we work to protect your information and review our practices regularly.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>8. Your Rights</h2>
+    <p>Subject to applicable law, including India&rsquo;s Digital Personal Data Protection Act, 2023, you may request:</p>
+    <ul>
+      <li>Access to personal data we hold about you</li>
+      <li>Correction of inaccurate or incomplete information</li>
+      <li>Deletion of data that is no longer required</li>
+      <li>Withdrawal of consent, where processing is based on consent</li>
+    </ul>
+    <p>Some requests may be limited where we must retain information for the insurer or TPA, or to meet legal obligations.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>9. Policy Updates</h2>
+    <p>We may update this policy to reflect:</p>
+    <ul>
+      <li>New features or technologies on our platform</li>
+      <li>Changes in data protection laws</li>
+      <li>Service enhancements</li>
+      <li>Security improvements</li>
+    </ul>
+    <p>Changes become effective immediately upon posting on this page. Continued use of our services constitutes acceptance of the updated policy.</p>
+  </section>
+
+  <section class="policy-section">
+    <h2>10. Contact Us</h2>
+    <div class="contact-box">
+      <p>For any questions or requests about this Privacy Policy, please contact:</p>
+      <p><strong>Saturn Associates Private Limited</strong><br />
+      Email: <a href="mailto:saturn.associate@gmail.com">saturn.associate@gmail.com</a><br />
+      Phone: +91-6262624845</p>
+    </div>
+  </section>
+</main>
+
+<!-- ─── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer>
+  <p>&copy; 2025 <strong>Saturn Associates Private Limited</strong>. All rights reserved. | GST: 23ABQCS0432A1ZU</p>
+  <p style="margin-top:8px;"><a href="/">Home</a> &middot; <a href="/privacy-policy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
